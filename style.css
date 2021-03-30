@@ -1,20 +1,43 @@
 .app {
   display: flex;
   height: 500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3 {
+  text-align: justify;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
 }
 
 .headings {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.size-input {
+  width: 30px;
 }
 
 .brush-selection {
   height: 70px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .paint {
   height: 250px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .palette {
@@ -51,21 +74,26 @@
 }
 
 .color-1 {
+  background-color: olive;
 
 }
 
 .color-2 {
+  background-color: #C4C1EA;
 
 }
 
 .color-3 {
+  background-color: #FE7878;
 
 }
 
 .color-4 {
+  background-color: #4FC0E8;
 
 }
 
 .color-5 {
+  background-color: white;
 
 }
