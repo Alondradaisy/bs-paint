@@ -13,17 +13,17 @@
  //*/
 
 
-//const gridWidth = 10;
-//let count = 0;
-//while (count < gridWidth * gridWidth) {
-  //const canvas = document.querySelector('.canvas');
-  //const div = document.createElement('div');
-  //div.className = 'square color-5';
-  //canvas.appendChild(div);
-  //count++;
-//}
+const gridWidth = 10;
+let count = 0;
+while (count < gridWidth * gridWidth) {
+  const canvas = document.querySelector('.canvas');
+  const div = document.createElement('div');
+  div.className = 'square color-5';
+  canvas.appendChild(div);
+  count++;
+}
 
-let mouseMvmt = false;
+let mouseDown = false;
 
 function paintColor(element) {
   return element.classList[1]; // the color at index 1
@@ -33,43 +33,43 @@ function clickedColor (event) {
   const color = event.target; //triggers the event passed through clickedColor
   const brush = document.querySelector('.current-brush');
   color.classList.replace(paintColor(color), paintColor(brush));  
-  mouseMvmt = false;
+  mouseDown = false;
 }
 
 function squareHoveredOver (event) {
-  if (mouseMvmt) {
+  if (mouseDown) {
     const color = event.target; //triggers the event passed through squareHoveredOver
     const brush = document.querySelector('.current-brush');
-    color.classList.replace(paintColor(paint), paintColor(brush));
+    color.classList.replace(paintColor(color), paintColor(brush));
   }
 }
 
-const color = createElement('.color');
+const squares = document.querySelectorAll('.square')
+for (const color of squares) { 
 
-for (const colors of color) {
-  color.addEventListener('mouseenter', squareHoveredOver)
+  color.addEventListener('mouseenter', squareHoveredOver) // hovering over the color
   color.addEventListener('click', clickedColor) // for when user clicks on a new color
 }
 
 function targetColor (event) {
   const brush = document.querySelector('.current-brush');
-  brush.classList.replace(clickedColor(brush), clickedColor(event.target));
+  brush.classList.replace(paintColor(brush), paintColor(event.target));
 }
 
-const paletteColors = document.querySelector('.palette-color');
+const paletteColors = document.querySelectorAll('.palette-color');
 
 for (const paletteColor of paletteColors) {
   paletteColor.addEventListener('click', targetColor);
 }
 
 document.body.addEventListener('mousedown', () => {
-  console.log('mouse movement')
-  mouseMvmt = true;
+  console.log('mousedown')
+  mouseDown = true;
 })
 
 document.body.addEventListener('mouseup', () => {
-  console.log('mouse movement')
-  mouseMvmt = false;
+  console.log('mousedown')
+  mouseDown = false;
 })
 
 
