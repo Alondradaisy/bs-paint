@@ -7,12 +7,13 @@
 }
 
 h3 {
-  text-align: justify;
+  margin: 40px;
 }
 
 p {
   display: block;
   margin-block-start: 1em;
+
 }
 
 .headings {
@@ -52,6 +53,7 @@ p {
 .icon {
   width: 30px;
   height: 30px;
+
 }
 
 .current-brush, .palette-color {
